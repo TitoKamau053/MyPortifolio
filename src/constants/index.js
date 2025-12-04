@@ -5,7 +5,11 @@ import {
   web,
   javascript,
   typescript,
-  html,
+  solidity,
+  avalanche,
+  mssql,
+  mysql,
+  nginx, 
   css,
   reactjs,
   redux,
@@ -23,6 +27,9 @@ import {
   jobit,
   tripguide,
   threejs,
+  alpha,
+  milp,
+  piggzy,
 } from "../assets";
 
 export const navLinks = [
@@ -61,14 +68,6 @@ const services = [
 
 const technologies = [
   {
-    name: "HTML 5",
-    icon: html,
-  },
-  {
-    name: "CSS 3",
-    icon: css,
-  },
-  {
     name: "JavaScript",
     icon: javascript,
   },
@@ -105,27 +104,43 @@ const technologies = [
     icon: git,
   },
   {
-    name: "figma",
-    icon: figma,
+    name: "solidity",
+    icon: solidity,
   },
   {
-    name: "docker",
-    icon: docker,
+    name: "nginx",
+    icon: nginx,
   },
+    {
+    name: "mssql",
+    icon: mssql,
+  },
+
+  {
+    name: "mysql",
+    icon: mysql,
+  },
+
+  {
+    name: "avalanche",
+    icon: avalanche,
+  }
+
+
 ];
 
 const experiences = [
   {
-    title: "C# Developer",
-    company_name: "Freelance",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "September 2024- October 2024",
+    title: "Fullstack Developer",
+    company_name: "Nyanjigi Online",
+    icon: shopify,
+    iconBg: "#1d1836",
+    date: "2025",
     points: [
-      "Developing and maintaining the backend for QuantitySurvey.com website for a client, using C# and other related technologies.",
-      "Collaborating with cross-functional teams including, a front-end developer high-quality website.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Architected and deployed a fullstack application hosted at nyanjigi.online.",
+      "Implemented backend APIs and MySQL database schema for scalable content delivery.",
+      "Designed responsive React frontend with smooth animations and brand storytelling.",
+      "Repo: https://github.com/TitoKamau053/Nyanjigi",
     ],
   },
   {
@@ -142,16 +157,16 @@ const experiences = [
     ],
   },
   {
-    title: "SpringBoot Developer",
-    company_name: "Freelance",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "October 2024 - November 2024",
+    title: "Technical Lead & Fabrication Strategist",
+    company_name: "Alphawrights Custom Fabricators",
+    icon: alpha,
+    iconBg: "#232631",
+    date: "2025",
     points: [
-      "Developing the backend for Student Management System in Java using Springboot and Maven",
-      "Collaborating with other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developed and deployed alphawrightscustomfabricators.pw to showcase fabrication services.",
+      "Integrated brand storytelling with modern UI/UX for distinct category presentation.",
+      "Configured VPS hosting, DNS, and SSL for secure deployment.",
+      "Repo: https://github.com/TitoKamau053/Alphawrights",
     ],
   },
   
@@ -160,19 +175,19 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Titus proved me wrong.",
-    name: "Vivian Wothaya",
-    designation: "Developer",
-    company: "Unistrat Corporation",
-    image: "https://randomuser.me/api/portraits/lego/1.jpg",
+      "Titus transformed our fabrication brand into a digital experience that feels authentic and professional.",
+    name: "Alex Nga'ang'a",
+    designation: "Owner & Operations Manager",
+    company: "Alphawrights Custom Fabricators",
+    image: "https://randomuser.me/api/portraits/lego/2.jpg",
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Titus does.",
-    name: "Graham Bradshaw",
-    designation: "Senior Backend Developer",
-    company: "TechBros",
-    image: "https://randomuser.me/api/portraits/lego/0.jpg",
+      "The Nyanjigi platform is seamless and scalable thanks to Titus’ fullstack expertise.",
+    name: "Njeri Ndaiga",
+    designation: "Product Manager",
+    company: "Nyanjigi  Water Irrigation Project",
+    image: "https://randomuser.me/api/portraits/lego/3.jpg",
   },
   {
     testimonial:
@@ -186,25 +201,17 @@ const testimonials = [
 
 const projects = [
   {
-    name: "SmartFire Mobile App",
+    name: "Nyanjigi Water Irrigation Project Platform",
     description:
-      "An IoT base mobile application integrated with sensors for monitoring, alerting and accessing emergency services to aid in fire accidents response",
+      "A fullstack platform showcasing curated collections with dynamic asset discovery and responsive design.",
     tags: [
-      {
-        name: "react-native",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "firebase & firestore",
-        color: "green-text-gradient",
-      },
-      {
-        name: "expo & expo Go",
-        color: "pink-text-gradient",
-      },
+      { name: "React", color: "blue-text-gradient" },
+      { name: "Node.js", color: "green-text-gradient" },
+      { name: "MySQL", color: "pink-text-gradient" },
     ],
     image: carrent,
-    source_code_link: "https://github.com/TitoKamau053/SFRA",
+    source_code_link: "https://github.com/TitoKamau053/Nyanjigi",
+    live_url: "https://nyanjigi.online",
   },
   {
     name: "Piggzy DApp",
@@ -224,26 +231,35 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: piggzy,
     source_code_link: "https://github.com/TitoKamau053/Time-Locked-Savings-Contract/tree/Development",
   },
   {
-    name: "Quantity Survey API",
+    name: "Alphawrights Custom Fabricators",
     description:
-      "A comprehensive API for the backend integration of a Quntity Survey Website",
+      "A brand-forward website deployed on VPS with secure reverse proxy, DNS, and SSL integration.",
     tags: [
-      {
-        name: "CSharp",
-        color: "blue-text-gradient",
-      },
-      {
-        name: ".Net8",
-        color: "green-text-gradient",
-      },
+      { name: "React", color: "blue-text-gradient" },
+      { name: "Node.js", color: "green-text-gradient" },
+      { name: "Cloudflare/Nginx", color: "pink-text-gradient" },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/TitoKamau053/Backend/tree/main",
+    image: jobit,
+    source_code_link: "https://github.com/TitoKamau053/Alphawrights",
+    live_url: "https://alphawrightscustomfabricators.pw",
   },
+  {
+    name: "MILP Optimization Model",
+    description:
+      "A Mixed-Integer Linear Programming model designed to optimize resource allocation and scheduling. The model balances constraints and objectives to deliver efficient, scalable solutions for complex decision-making problems.",
+    tags: [
+      { name: "Python", color: "blue-text-gradient" },
+      { name: "PuLP", color: "green-text-gradient" },
+      { name: "Optimization", color: "pink-text-gradient" },
+    ],
+    image: milp, 
+    source_code_link: "https://github.com/TitoKamau053/MILP-Scheduler",
+  },
+
 ];
 
 export { services, technologies, experiences, testimonials, projects };

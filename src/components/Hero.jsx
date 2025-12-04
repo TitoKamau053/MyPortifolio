@@ -37,8 +37,8 @@ const Hero = () => {
             Hi, I'm <span className='text-[#915EFF]'>Titus Kamau</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop 3D visuals, user <br className='sm:block hidden' />
-            interfaces and Web2 & Web3(Dapp) applications
+            Fullstack developer skilled in React, Node.js, MongoDB, MySQL, and DevOps with Nginx & VPS hosting.  
+            I build Web3 apps with Solidity on Avalanche, and explore 3D visuals with Three.js.
           </p>
         </div>
       </div>

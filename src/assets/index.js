@@ -20,6 +20,11 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import solidity from "./tech/solidity.png";
+import avalanche from "./tech/avalanche.png";
+import mssql from "./tech/mssql.png";
+import mysql from "./tech/mysql.png";
+import nginx from "./tech/nginx.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -29,6 +34,9 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import milp from "./milp.png";
+import alpha from "./alpha.png";
+import piggzy from "./piggzy.png";
 
 export {
   logo,
@@ -41,6 +49,11 @@ export {
   close,
   css,
   docker,
+  solidity,
+  avalanche,
+  mssql,
+  mysql,
+  nginx,
   figma,
   git,
   html,
@@ -59,4 +72,7 @@ export {
   carrent,
   jobit,
   tripguide,
+  milp,
+  alpha,
+  piggzy
 };

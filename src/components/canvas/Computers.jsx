@@ -19,13 +19,11 @@ const Computers = ({ isMobile }) => {
         shadow-mapSize={1024}
       />
       <pointLight intensity={1} />
-        <primitive
-          object={computer.scene}
-          scale={isMobile ? 0.7 : 0.75}
-          position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
-          // Remove fixed rotation to allow free rotation by OrbitControls
-          // rotation={[-0.01, -0.2, -0.1]}
-        />
+      <primitive
+        object={computer.scene}
+        scale={isMobile ? 0.7 : 0.75}
+        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
+      />
     </mesh>
   );
 };
@@ -60,14 +58,11 @@ const ComputersCanvas = () => {
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls
           enableZoom={false}
-          // Optionally add damping for smoother rotation
           enableDamping={true}
           dampingFactor={0.1}
         />
         <Computers isMobile={isMobile} />
       </Suspense>
-
-      <Preload all />
     </Canvas>
   );
 };

@@ -1,14 +1,14 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Decal,
   Float,
   OrbitControls,
-  Preload,
   useTexture,
 } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import { canvasQueue } from "../../utils/CanvasQueue";
 
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
@@ -37,20 +37,76 @@ const Ball = (props) => {
   );
 };
 
-const BallCanvas = ({ icon }) => {
-  return (
-    <Canvas
-      frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
-      </Suspense>
+const BallCanvas = ({ icon, index }) => {
+  const containerRef = useRef();
+  const [isVisible, setIsVisible] = useState(false);
+  const [canRender, setCanRender] = useState(false);
+  const ballId = useRef(`ball-${index}-${Date.now()}`);
 
-      <Preload all />
-    </Canvas>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1, rootMargin: "100px" }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      // Request permission to render from the queue
+      canvasQueue.request(ballId.current, (allowed) => {
+        if (allowed) {
+          setCanRender(true);
+        }
+      });
+    } else {
+      // Release the slot when not visible
+      if (canRender) {
+        canvasQueue.release(ballId.current);
+        setCanRender(false);
+      }
+    }
+
+    return () => {
+      canvasQueue.release(ballId.current);
+    };
+  }, [isVisible, canRender]);
+
+  return (
+    <div ref={containerRef} className="w-28 h-28">
+      {canRender ? (
+        <Canvas
+          frameloop='demand'
+          dpr={[1, 2]}
+          gl={{ 
+            preserveDrawingBuffer: true,
+            antialias: false,
+            powerPreference: "high-performance",
+            failIfMajorPerformanceCaveat: false
+          }}
+        >
+          <Suspense fallback={<CanvasLoader />}>
+            <OrbitControls enableZoom={false} />
+            <Ball imgUrl={icon} />
+          </Suspense>
+        </Canvas>
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-tertiary rounded-full opacity-50">
+          <div className="w-12 h-12 rounded-full border-4 border-gray-600 border-t-violet-500 animate-spin"></div>
+        </div>
+      )}
+    </div>
   );
 };
 

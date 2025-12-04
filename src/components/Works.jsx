@@ -15,33 +15,43 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  live_url,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)} className="w-full">
       <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
+        options={{ max: 45, scale: 1, speed: 450 }}
+        className='bg-tertiary p-5 rounded-2xl w-full h-full'
       >
-        <div className='relative w-full h-[230px]'>
+        <div className="relative w-full h-[230px] group">
           <img
             src={image}
-            alt='project_image'
-            className='w-full h-full object-cover rounded-2xl'
+            alt={name}
+            className="w-full h-full object-cover rounded-2xl"
           />
 
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+          {/* Overlay that appears on hover */}
+          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-300 rounded-2xl flex justify-center items-center">
+            {live_url && (
+              <div
+                onClick={() => window.open(live_url, "_blank")}
+                className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 black-gradient px-6 py-3 rounded-lg cursor-pointer transform hover:scale-105"
+              >
+                <span className="text-white text-sm font-semibold">Live Demo</span>
+              </div>
+            )}
+          </div>
+
+          {/* GitHub icon in top-right corner - always visible */}
+          <div className="absolute top-3 right-3">
             <div
               onClick={() => window.open(source_code_link, "_blank")}
-              className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform"
             >
               <img
                 src={github}
-                alt='source code'
-                className='w-1/2 h-1/2 object-contain'
+                alt="source code"
+                className="w-1/2 h-1/2 object-contain"
               />
             </div>
           </div>
@@ -54,10 +64,7 @@ const ProjectCard = ({
 
         <div className='mt-4 flex flex-wrap gap-2'>
           {tags.map((tag) => (
-            <p
-              key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
-            >
+            <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
               #{tag.name}
             </p>
           ))}
@@ -72,7 +79,7 @@ const Works = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} `}>My work</p>
-        <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
+        <h2 className={`${styles.sectionHeadText}`}>Some of my Projects.</h2>
       </motion.div>
 
       <div className='w-full flex'>
@@ -88,7 +95,7 @@ const Works = () => {
         </motion.p>
       </div>
 
-      <div className='mt-20 flex flex-wrap gap-7'>
+      <div className='mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7'>
         {projects.map((project, index) => (
           <ProjectCard key={`project-${index}`} index={index} {...project} />
         ))}
