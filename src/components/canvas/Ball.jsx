@@ -87,7 +87,7 @@ const BallCanvas = ({ icon, index }) => {
     <div ref={containerRef} className="w-28 h-28">
       {canRender ? (
         <Canvas
-          frameloop='demand'
+          frameloop='always'
           dpr={[1, 2]}
           gl={{ 
             preserveDrawingBuffer: true,
@@ -97,7 +97,11 @@ const BallCanvas = ({ icon, index }) => {
           }}
         >
           <Suspense fallback={<CanvasLoader />}>
-            <OrbitControls enableZoom={false} />
+            <OrbitControls
+              enableZoom={false}
+              autoRotate
+              autoRotateSpeed={4}
+            />
             <Ball imgUrl={icon} />
           </Suspense>
         </Canvas>

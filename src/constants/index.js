@@ -30,6 +30,11 @@ import {
   alpha,
   milp,
   piggzy,
+  jilock,
+  flutter,
+  fastapi,
+  firebase,
+  neuron,
 } from "../assets";
 
 export const navLinks = [
@@ -40,6 +45,10 @@ export const navLinks = [
   {
     id: "work",
     title: "Work",
+  },
+  {
+    id: "resume",
+    title: "Resume",
   },
   {
     id: "contact",
@@ -124,23 +133,47 @@ const technologies = [
   {
     name: "avalanche",
     icon: avalanche,
-  }
+  },
+  {
+    name: "Flutter",
+    icon: flutter,
+  },
+  {
+    name: "FastAPI",
+    icon: fastapi,
+  },
+  {
+    name: "Firebase",
+    icon: firebase,
+  },
 
 
 ];
 
 const experiences = [
   {
+    title: "Software Engineer Intern",
+    company_name: "Neuron Software Solutions",
+    icon: neuron,
+    iconBg: "#383E56",
+    date: "January 2026 - March 2026",
+    points: [
+      "Developed forms and web APIs using Blazor, VB.Net, and ASP.NET C# for the NeuHMIS hospital management system.",
+      "Handled backend development tasks supporting ERP and digital platforms.",
+      "Built reports with SAP Crystal Reports, improving data visibility and decision-making.",
+      "Integrated the M-Pesa Daraja API for secure payment processing within applications.",
+    ],
+  },
+  {
     title: "Fullstack Developer",
     company_name: "Nyanjigi Online",
-    icon: shopify,
+    icon: starbucks,
     iconBg: "#1d1836",
     date: "2025",
     points: [
       "Architected and deployed a fullstack application hosted at nyanjigi.online.",
       "Implemented backend APIs and MySQL database schema for scalable content delivery.",
       "Designed responsive React frontend with smooth animations and brand storytelling.",
-      "Repo: https://github.com/TitoKamau053/Nyanjigi",
     ],
   },
   {
@@ -166,7 +199,6 @@ const experiences = [
       "Developed and deployed alphawrightscustomfabricators.pw to showcase fabrication services.",
       "Integrated brand storytelling with modern UI/UX for distinct category presentation.",
       "Configured VPS hosting, DNS, and SSL for secure deployment.",
-      "Repo: https://github.com/TitoKamau053/Alphawrights",
     ],
   },
   
@@ -200,6 +232,18 @@ const testimonials = [
 ];
 
 const projects = [
+  {
+    name: "JiLock",
+    description:
+      "A fullstack mobile app with a Flutter frontend and FastAPI backend, using Firebase for auth, storage, and real-time data. Features a camera-based verification flow with all CRUD operations routed through the backend for consistency and security.",
+    tags: [
+      { name: "Flutter", color: "blue-text-gradient" },
+      { name: "FastAPI", color: "green-text-gradient" },
+      { name: "Firebase", color: "pink-text-gradient" },
+    ],
+    image: jilock,
+    source_code_link: "https://github.com/TitoKamau053/JiLock",
+  },
   {
     name: "Nyanjigi Water Irrigation Project Platform",
     description:

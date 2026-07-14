@@ -25,6 +25,9 @@ import avalanche from "./tech/avalanche.png";
 import mssql from "./tech/mssql.png";
 import mysql from "./tech/mysql.png";
 import nginx from "./tech/nginx.png";
+import fastapi from "./tech/fastapi.png";
+import firebase from "./tech/firebase.png";
+import flutter from "./tech/flutter.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -37,6 +40,8 @@ import tripguide from "./tripguide.png";
 import milp from "./milp.png";
 import alpha from "./alpha.png";
 import piggzy from "./piggzy.png";
+import jilock from "./jilock.png";
+import neuron from "./neuron.png";
 
 export {
   logo,
@@ -70,6 +75,11 @@ export {
   starbucks,
   tesla,
   carrent,
+  fastapi,
+  firebase,
+  flutter,
+  jilock,
+  neuron,
   jobit,
   tripguide,
   milp,

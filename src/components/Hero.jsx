@@ -37,8 +37,9 @@ const Hero = () => {
             Hi, I'm <span className='text-[#915EFF]'>Titus Kamau</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Fullstack developer skilled in React, Node.js, MongoDB, MySQL, and DevOps with Nginx & VPS hosting.  
-            I build Web3 apps with Solidity on Avalanche, and explore 3D visuals with Three.js.
+            I build things end-to-end — from using DotNet for systems to Flutter mobile apps to React dashboards,
+            with a bit of blockchain and 3D thrown in for fun.<br className='sm:block hidden' />
+            I care about software that's solid under the hood and genuinely pleasant to use.
           </p>
         </div>
       </div>

@@ -48,7 +48,7 @@ const ComputersCanvas = () => {
 
   return (
     <Canvas
-      frameloop='demand'
+      frameloop='always'
       shadows
       dpr={[1, 2]}
       camera={{ position: [20, 3, 5], fov: 25 }}
@@ -60,6 +60,8 @@ const ComputersCanvas = () => {
           enableZoom={false}
           enableDamping={true}
           dampingFactor={0.1}
+          autoRotate
+          autoRotateSpeed={1.2}
         />
         <Computers isMobile={isMobile} />
       </Suspense>

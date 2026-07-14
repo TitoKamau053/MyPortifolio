@@ -77,6 +77,10 @@ const Contact = () => {
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
+        <p className='mt-3 text-secondary text-[15px] max-w-md leading-[24px]'>
+          Got a project in mind, a question, or just want to say hi? I'd love to 
+          hear from you — drop me a message and I'll get back to you as soon as I can.
+        </p>
 
         <form
           ref={formRef}
